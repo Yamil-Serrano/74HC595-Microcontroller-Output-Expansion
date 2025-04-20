@@ -80,15 +80,15 @@ See `src/main.cpp` for the full code.
 
 ---
 
-## Diagrams
+## Diagram
 
-_(Coming soon — feel free to add your own schematic or breadboard image here!)_
+![Untitled Sketch_bb](https://github.com/user-attachments/assets/c7ff42d3-5243-4320-a5c5-99ca9445871b)
 
 ---
 
 ## 74HC595 Pinout
 
-_(Coming soon — can include a labeled diagram or table here.)_
+![74x595_package-and-pinout-1024x614](https://github.com/user-attachments/assets/79349e0f-a064-4eb7-be7f-ce7c99c4bc18)
 
 ---
 
