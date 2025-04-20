@@ -80,6 +80,34 @@ See `src/main.cpp` for the full code.
 
 ---
 
+## Is This a Decoder or Multiplexer?
+
+At first glance, the **74HC595** might look like a decoder or a multiplexer because it has 3 input pins and 8 output lines. But it's actually a different kind of digital IC.
+
+The **74HC595 is a shift register**, not a decoder or mux.
+
+Here’s a quick comparison to avoid confusion:
+
+### Decoder vs Shift Register
+
+| Feature                     | Decoder (e.g. 74HC138)                     | Shift Register (74HC595)                     |
+|----------------------------|--------------------------------------------|----------------------------------------------|
+| Inputs                     | 3 (binary selector)                        | 3 (Data, Clock, Latch)                       |
+| Outputs                    | 8 (Q0 to Q7)                               | 8 (Q0 to Q7)                                 |
+| Active Outputs             | Only **one at a time**                     | **Any combination** of outputs               |
+| How It Works               | Selects one output line based on binary input | Loads 8 bits serially and pushes to outputs |
+| Memory?                    | ❌ No memory                               | ✅ Has internal shift + latch registers      |
+| Use Case                   | Device/address selection                   | Controlling multiple outputs (LEDs, etc.)    |
+
+### ✅ 74HC595 Use Case:
+With the **74HC595**, you can control any combination of the 8 output pins just by sending 8 bits of data using `shiftOut()` from your microcontroller. The `latch` pin ensures that outputs only update once you're ready, making it very stable for visual displays or multi-output devices.
+
+### ❌ Decoder Use Case:
+A decoder like the **74HC138** activates **only one output at a time** based on a binary input (e.g. input `010` activates **Q2** only). This is great for **addressing** or **selecting** one of many devices, but not for driving many outputs simultaneously.
+
+---
+
+
 ## Diagram
 
 ![Untitled Sketch_bb](https://github.com/user-attachments/assets/c7ff42d3-5243-4320-a5c5-99ca9445871b)
