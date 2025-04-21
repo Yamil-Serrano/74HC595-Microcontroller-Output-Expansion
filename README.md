@@ -110,7 +110,11 @@ A decoder like the **74HC138** activates **only one output at a time** based on 
 
 ## Diagram
 
-![image](https://github.com/user-attachments/assets/d9138952-89a8-4929-8473-44b17e6181b6)
+![image](https://github.com/user-attachments/assets/206d83c9-5519-4396-8ff8-48e9d6738781)
+
+![Screenshot 2025-04-21 142857](https://github.com/user-attachments/assets/e45f2ff4-7d98-48c2-a40f-cb5ce2d4ed36)
+
+
 
 
 ---
