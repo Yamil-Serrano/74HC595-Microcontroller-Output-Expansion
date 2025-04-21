@@ -17,8 +17,35 @@ This repo documents my process, includes sample code, and provides diagrams and 
 - What the 74HC595 does and how it works
 - How to use `shiftOut()` to control outputs
 - How to connect the shift register to an ESP8266
-- How to send all 256 possible output combinations
 - What the latch pin does and how the internal shift register works
+
+## Technical Deep Dive: How Those 3 Lines Actually Work
+
+When you write:
+
+```cpp
+digitalWrite(latchPin, LOW);
+shiftOut(dataPin, clockPin, MSBFIRST, byteValue);
+digitalWrite(latchPin, HIGH);
+```
+
+You are directly controlling the **flow of bits** into the shift register and when they are revealed on the output pins (Q0–Q7). Here's a breakdown:
+
+### Step-by-Step Breakdown
+
+1. **`digitalWrite(latchPin, LOW);`**  
+   This disables the latch. You're telling the 74HC595 to *prepare* for incoming data, but **not to change the output pins just yet**. Think of this like opening the gate to a loading dock.
+
+2. **`shiftOut(dataPin, clockPin, MSBFIRST, byteValue);`**  
+   This is where the magic happens. Our microcontroller sends the `byteValue` **one bit at a time**, starting with the **most significant bit** (MSB) if you specify `MSBFIRST`.
+
+   For each bit:
+   - The bit value is written to the `dataPin`.
+   - A clock pulse is sent via `clockPin` (`SHCP` on the chip), telling the shift register to **capture** the current bit and **shift** all previously stored bits one position to the right.
+   - Internally, each clock pulse triggers the flip-flops to transfer data down the line — like a **domino effect**, each flip-flop passes its content to the next.
+
+3. **`digitalWrite(latchPin, HIGH);`**  
+   Once all 8 bits are in place, this command **copies** the current contents of the **shift register** into the **storage register**, which drives the output pins Q0–Q7.
 
 
 ## How It Works (Shift Register Logic)
@@ -43,6 +70,26 @@ Here’s what happens in sequence:
 
  So the shift register acts like an **internal stack**, constantly being overwritten every time you call `shiftOut()`. The latch ensures outputs only update *when you say so*.
 
+###  What’s Inside: Flip-Flops and Data Shifting
+
+At the hardware level, the shift register is made of **8 serially connected D-type flip-flops**:
+
+```
+DS → [FF1] → [FF2] → [FF3] → ... → [FF8]
+        ↑     ↑     ↑           ↑
+       Q7    Q6    Q5   ...     Q0
+```
+
+- Each **D flip-flop** stores a single bit.
+- On every **clock pulse**, the current state of each flip-flop is **pushed** to the next one.
+- The **new bit** (from `dataPin`) enters the first flip-flop (Q7).
+- The previously stored bits shift **rightward**, like a conveyor belt.
+
+Once 8 clock cycles are done, the shift register holds the full byte, but **none of the outputs change yet**.
+
+That’s where the **storage register** comes in:
+- When the `latchPin` (STCP) is set HIGH, the contents of the shift register are **latched** into the storage register and reflected on the output pins **all at once**.
+- This separation prevents the outputs from flickering during the shifting process.
 
 ## Hardware Used
 
