@@ -2,7 +2,6 @@
 
 This project explores how to use the **74HC595 shift register** to expand the number of digital outputs available on an **ESP8266**, using just 3 GPIO pins. It’s built with **PlatformIO**, but you can also upload the same code using the **Arduino IDE**. The example includes code to control all 8 outputs by sending serial data to the shift register.
 
----
 
 ## Why I Built This?
 
@@ -12,7 +11,6 @@ This experiment is part of my ongoing exploration into embedded systems, and it 
 
 This repo documents my process, includes sample code, and provides diagrams and reference material for others who want to try the same.
 
----
 
 ## What You'll Learn
 
@@ -22,7 +20,6 @@ This repo documents my process, includes sample code, and provides diagrams and 
 - How to send all 256 possible output combinations
 - What the latch pin does and how the internal shift register works
 
----
 
 ## How It Works (Shift Register Logic)
 
@@ -46,7 +43,6 @@ Here’s what happens in sequence:
 
  So the shift register acts like an **internal stack**, constantly being overwritten every time you call `shiftOut()`. The latch ensures outputs only update *when you say so*.
 
----
 
 ## Hardware Used
 
@@ -55,7 +51,7 @@ Here’s what happens in sequence:
 - Breadboard + Jumper Wires
 - LEDs + Resistors (optional for testing outputs)
 
----
+
 
 ## Wiring Table
 
@@ -70,7 +66,7 @@ Here’s what happens in sequence:
 
 > ⚠️ Use level shifting if powering the chip with 5V while using a 3.3V microcontroller.
 
----
+
 
 ## Code Overview
 
@@ -78,7 +74,7 @@ The example cycles through all 256 possible byte values (0–255), showing every
 
 See `src/main.cpp` for the full code.
 
----
+
 
 ## Is This a Decoder or Multiplexer?
 
@@ -105,22 +101,27 @@ With the **74HC595**, you can control any combination of the 8 output pins just 
 ### ❌ Decoder Use Case:
 A decoder like the **74HC138** activates **only one output at a time** based on a binary input (e.g. input `010` activates **Q2** only). This is great for **addressing** or **selecting** one of many devices, but not for driving many outputs simultaneously.
 
----
 
 
 ## Diagrams
 
 ![image](https://github.com/user-attachments/assets/206d83c9-5519-4396-8ff8-48e9d6738781)
----
+
 ![Screenshot 2025-04-21 142857](https://github.com/user-attachments/assets/e45f2ff4-7d98-48c2-a40f-cb5ce2d4ed36)
-
-
-
-
----
 
 ## 74HC595 Pinout
 
 ![74x595_package-and-pinout-1024x614](https://github.com/user-attachments/assets/79349e0f-a064-4eb7-be7f-ce7c99c4bc18)
 
----
+
+## License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE.md) file for details.
+
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out to me:
+
+GitHub: [Neowizen](https://github.com/Yamil-Serrano)
+
+
