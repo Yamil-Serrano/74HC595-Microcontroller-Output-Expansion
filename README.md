@@ -90,6 +90,9 @@ DS → [FF1] → [FF2] → [FF3] → ... → [FF8]
 
 Once 8 clock cycles are done, the shift register holds the full byte, but **none of the outputs change yet**.
 
+![image](https://github.com/user-attachments/assets/6bc64660-c926-4add-8f59-6c927e879526)
+
+
 That’s where the **storage register** comes in:
 - When the `latchPin` (STCP) is set HIGH, the contents of the shift register are **latched** into the storage register and reflected on the output pins **all at once**.
 - This separation prevents the outputs from flickering during the shifting process.
