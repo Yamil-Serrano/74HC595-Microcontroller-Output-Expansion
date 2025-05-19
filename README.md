@@ -72,6 +72,9 @@ Here’s what happens in sequence:
 
 ###  What’s Inside: Flip-Flops and Data Shifting
 
+![image](https://github.com/user-attachments/assets/5d64e588-2447-49e2-8a2e-712ba8f788ef)
+
+
 At the hardware level, the shift register is made of **8 serially connected D-type flip-flops**:
 
 ```
