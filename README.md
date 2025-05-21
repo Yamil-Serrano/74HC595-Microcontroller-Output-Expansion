@@ -162,11 +162,6 @@ A decoder like the **74HC138** activates **only one output at a time** based on 
 
 ![Screenshot 2025-04-21 142857](https://github.com/user-attachments/assets/e45f2ff4-7d98-48c2-a40f-cb5ce2d4ed36)
 
-## 74HC595 Pinout
-
-![74x595_package-and-pinout-1024x614](https://github.com/user-attachments/assets/79349e0f-a064-4eb7-be7f-ce7c99c4bc18)
-
-
 ## License
 This project is licensed under the MIT License – see the [LICENSE](LICENSE.md) file for details.
 
