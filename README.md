@@ -14,10 +14,25 @@ This repo documents my process, includes sample code, and provides diagrams and 
 
 ## What You'll Learn
 
-- What the 74HC595 does and how it works
-- How to use `shiftOut()` to control outputs
-- How to connect the shift register to an ESP8266
-- What the latch pin does and how the internal shift register works
+- What the 74HC595 does and how it works  
+- How to use `shiftOut()` to control outputs  
+- How to connect the shift register to an ESP8266  
+- What the latch pin does and how the internal shift register works  
+
+---
+
+### 🧩 This Project is Part of a Shift Register I/O Expansion Series
+
+This repository is the **first part** of a series exploring how to expand the I/O capabilities of microcontrollers using shift registers:
+
+- **Part 1**:  [74HC595 – Output Expansion (this repo)](https://github.com/Yamil-Serrano/74HC595-ESP8266-Output-Expansion)  
+- **Part 2**:  [74HC165 – Input Expansion](https://github.com/Yamil-Serrano/74HC165-ESP8266-Input-Expansion)
+
+ In Part 2, I cover how to read multiple digital inputs (like buttons or switches) using the **74HC165** shift register.  
+It’s the *reverse* of this project — instead of sending data **to** outputs (serial-to-parallel), we’ll read data **from** inputs using **parallel-to-serial** communication.
+
+---
+
 
 ## Technical Deep Dive: How Those 3 Lines Actually Work
 
