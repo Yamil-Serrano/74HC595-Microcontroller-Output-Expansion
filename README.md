@@ -1,4 +1,4 @@
-# 74HC595-ESP8266-Output-Expansion
+# 74HC595-Microcontroller-Output-Expansion
 
 This project explores how to use the **74HC595 shift register** to expand the number of digital outputs available on an **ESP8266**, using just 3 GPIO pins. It’s built with **PlatformIO**, but you can also upload the same code using the **Arduino IDE**. The example includes code to control all 8 outputs by sending serial data to the shift register.
 
