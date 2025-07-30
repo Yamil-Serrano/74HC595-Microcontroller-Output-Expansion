@@ -26,7 +26,7 @@ This repo documents my process, includes sample code, and provides diagrams and 
 This repository is the **first part** of a series exploring how to expand the I/O capabilities of microcontrollers using shift registers:
 
 - **Part 1**:  [74HC595-Microcontroller-Output-Expansion (this repo)](https://github.com/Yamil-Serrano/74HC595-Microcontroller-Output-Expansion)  
-- **Part 2**:  [74HC165-Microcontroller-Input-Expansion](https://github.com/Yamil-Serrano/74HC595-Microcontroller-Input-Expansion)
+- **Part 2**:  [74HC165-Microcontroller-Input-Expansion](https://github.com/Yamil-Serrano/74HC165-Microcontroller-Input-Expansion)
 
  In Part 2, I cover how to read multiple digital inputs (like buttons or switches) using the **74HC165** shift register.  
 It’s the *reverse* of this project — instead of sending data **to** outputs (serial-to-parallel), we’ll read data **from** inputs using **parallel-to-serial** communication.
